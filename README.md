@@ -8,7 +8,6 @@
 
 ![Image one](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/01.png)
 
-**图**** 1：选择 ****CloudFormation模块**
 
 2. 在配置前，请确保您的VPC在不同可用区中有两个公有子网和三个私有子网（可选），以及 DHCP 选项中配置的域名选项，如 [Amazon VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html) [文档](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html)中所述。
 3. 私有子网需配置 NAT 网关或 NAT 实例以用于出站 Internet 连接，并需创建堡垒主机及其关联的安全组以实现入站 SSH 访问。(请参阅 [Amazon VPC](https://aws.amazon.com/quickstart/architecture/vpc/) [快速入门](https://aws.amazon.com/quickstart/architecture/vpc/)设置VPC， [Linux](https://aws.amazon.com/quickstart/architecture/linux-bastion/) [堡垒主机快速入门](https://aws.amazon.com/quickstart/architecture/linux-bastion/)设置堡垒主机。)
@@ -17,7 +16,6 @@
 
 ![Image two](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/02.png)
 
-**图**** 2：选择 ****Select Template并保留默认URL**
 
 6. 在 **Specify Details** 页面上，更改堆栈名称（可选）。填写模板的参数，并仔细检查默认设置中的其他参数，根据需要进行更改（见下表）。完成后选择 **Next** 进入下一步。
 
@@ -66,7 +64,6 @@ _AWS 快速入门配置：_
 
 ![Image](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/03.png)
 
-**图**** 3 ****：确认模板将创建IAM资源**
 
 9. 选择 **Create** 以部署堆栈。
 10. 监控堆栈的状态。当状态为 **CREATE\_COMPLETE** 时 (如图4所示)，表示 MongoDB 群集已淮备就绪。
@@ -74,16 +71,14 @@ _AWS 快速入门配置：_
 
 ![Image](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/04.png)
 
-**图**** 4：成功创建 **** MongoDB **** 群集**
 
 **步骤二 连接到 MongoDB 节点**
 
 当 AWS CloudFormation 模板成功创建堆栈后，您需要通过AWS账户中已安装的软件运行MongoDB 节点。请使用 SSH 连接到堡垒主机实例，以连接到任一 MongoDB 节点，即在 Amazon EC2 控制台中，选择该堡垒实例，然后选择 **Connect** 。
 
 
-![Image one](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/05.png)
+![Image](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/05.png)
 
-**图**** 5 ****：连接到**  **MongoDB**  **节点**
 
 使用 SSH 连接到堡垒主机实例后，您可以通过类似的方式连接到任何 MongoDB 节点 (选择节点，然后选择 **Connect** 以查找 SSH 命令)。
 
