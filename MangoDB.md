@@ -2,7 +2,7 @@
 
 ## 步骤一：加载Quick Start
 
-1. 在您的 AWS 控制台中选择 AWS CloudFormation ，开始部署 MangoDB 集群。
+### 1. 在您的 AWS 控制台中选择 AWS CloudFormation ，开始部署 MangoDB 集群。
 
 ![Image one](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/01.png)
 
