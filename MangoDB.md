@@ -1,6 +1,6 @@
 # 将MongoDB部署到现有VPC
 
-**步骤一：加载Quick Start**
+## 步骤一：加载Quick Start
 
 1. 在您的 AWS 控制台中选择 AWS CloudFormation ，开始部署 MangoDB 集群。
 
@@ -70,7 +70,7 @@ _AWS 快速入门配置：_
 ![Image](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/04.png)
 
 
-**步骤二 连接到 MongoDB 节点**
+## 步骤二 连接到 MongoDB 节点
 
 当 AWS CloudFormation 模板成功创建堆栈后，您需要通过AWS账户中已安装的软件运行MongoDB 节点。请使用 SSH 连接到堡垒主机实例，以连接到任一 MongoDB 节点，即在 Amazon EC2 控制台中，选择该堡垒实例，然后选择 **Connect** 。
 
