@@ -1,6 +1,6 @@
 # quickstart-guide
 
-**Guide: 将MongoDB部署到现有VPC**
+# 将MongoDB部署到现有VPC
 
 **步骤一：加载Quick Start**
 
