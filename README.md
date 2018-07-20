@@ -12,7 +12,7 @@
 2. 在配置前，请确保您的VPC在不同可用区中有两个公有子网和三个私有子网（可选），以及 DHCP 选项中配置的域名选项，如 [Amazon VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html) [文档](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html)中所述。
 3. 私有子网需配置 NAT 网关或 NAT 实例以用于出站 Internet 连接，并需创建堡垒主机及其关联的安全组以实现入站 SSH 访问。(请参阅 [Amazon VPC](https://aws.amazon.com/quickstart/architecture/vpc/) [快速入门](https://aws.amazon.com/quickstart/architecture/vpc/)设置VPC， [Linux](https://aws.amazon.com/quickstart/architecture/linux-bastion/) [堡垒主机快速入门](https://aws.amazon.com/quickstart/architecture/linux-bastion/)设置堡垒主机。)
 4. 检查导航栏右上角显示的所在区域，根据需要进行更改。
-5. 在 **Select Template** 页面上，保留模板 URL 的默认设置，然后选择 **Next** 。
+5. 在 **Select Template** 页面上，若使用默认模板则保留模板 URL 的默认设置，或选择上传您的Template文件，然后选择 **Next** 。
 
 ![Image two](https://github.com/xyG67/quickstart-guide/blob/xy/IMG/02.png)
 
