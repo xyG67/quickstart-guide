@@ -1,6 +1,6 @@
 # 将MongoDB部署到现有VPC
 
-![Image link china](assets/mongodb/ChinaRegion.png)            ![Image link global](assets/mongodb/GlobalRegion.png)
+![Image link china](assets/mongodb/ChinaRegion.png)            ![Image link global](assets/mongodb/GlobalRegion.png)(https://docs.aws.amazon.com/zh_cn/quickstart/latest/mongodb/images/launch-button-existing.png)
 
 ## 步骤一：加载Quick Start
 
