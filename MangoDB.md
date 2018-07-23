@@ -1,5 +1,7 @@
 # 将MongoDB部署到现有VPC
 
+![Image link china](assets/mongodb/ChinaRegion.png)            ![Image link global](assets/mongodb/GlobalRegion.png)
+
 ## 步骤一：加载Quick Start
 
  1. 在您的 AWS 控制台中选择 AWS CloudFormation ，开始部署 MangoDB 集群。
