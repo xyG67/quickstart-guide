@@ -1,7 +1,6 @@
 # 将MongoDB部署到现有VPC
 
-[![Image link china](assets/mongodb/ChinaRegion.png)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/new?stackName=MongoDB&templateURL=https://s3.amazonaws.com/quickstart-reference/mongodb/latest/templates/mongodb-master.template)   
-[![Image link global](assets/mongodb/GlobalRegion.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=MongoDB&templateURL=https://s3.amazonaws.com/quickstart-reference/mongodb/latest/templates/mongodb.template)
+[![Image link china](assets/mongodb/ChinaRegion.png)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/new?stackName=MongoDB&templateURL=https://s3.amazonaws.com/quickstart-reference/mongodb/latest/templates/mongodb-master.template) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Image link global](assets/mongodb/GlobalRegion.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=MongoDB&templateURL=https://s3.amazonaws.com/quickstart-reference/mongodb/latest/templates/mongodb.template)
 
 ## 步骤一：加载Quick Start
 
