@@ -1,11 +1,11 @@
-
-#Guide: S3FS快速部署
+# Guide: S3FS快速部署
 
 您可以启动Quick Start，将 S3fs 部署到 AWS 账户中。完成部署需要约 5 分钟。请查看下述实施详细信息，按照此指南后面部分提供的分步说明进行操作。
 
 [![Image link china](assets/S3fs/ChinaRegion.png)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/new?stackName=S3FS&templateURL=https://s3.amazonaws.com/cloudformation2018-qs/s3fs_China_final.template) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Image link global](assets/S3fs/GlobalRegion.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=S3FS&templateURL=https://s3.amazonaws.com/cloudformation2018-qs/s3fs_Global_final.template)
 
 **步骤一：加载Quick Start**
+
 - 在您的 AWS 账户中启动 AWS CloudFormation 模板。
 
 ![](/assets/S3fs/01.png)
@@ -18,12 +18,15 @@
 
 - 在 **Specify Details** 页面上，填写堆栈名称及相关参数，根据需要进行更改（见下表）。完成后选择 **Next** 进入下一步。
 **部署 **** S3FS**** 的配置参数**
+
 | 参数标签 | 参数名称 | 默认值 | 说明 |
 | --- | --- | --- | --- |
 | VPC | VPC | _需要输入_ | 将部署MongoDB 群集的 VPC的ID (例如，vpc-0343606e)。 |
 | 子网 | PrimaryNodeSubnet | _需要输入_ | 要部署主MongoDB到节点的 VPC 中现有子网的 ID (例如，subnet-a0246dcd)。 |
 | 密钥名称 | KeyPairName | _需要输入_ | 公有/私有密钥对，使您能够在实例启动后安全地与它连接。|
 | S3 存储桶名称 | QSS3BucketName | quickstart-reference | 安装快速入门模板和脚本的 S3 存储桶。如果您希望自定义或扩展快速入门，请使用该参数来指定为该副本创建的 S3 存储桶名称。存储桶名称可包含数字、小写字母、大写字母和连字符，但不得包括连字符开头或结尾。 |
+
+截图如下：
 
 ![](/assets/S3fs/03.png)
 
