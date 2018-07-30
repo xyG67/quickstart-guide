@@ -156,7 +156,7 @@
    **在连接到 EC2 实例后**，依次输入以下命令，在实例中安装 MySQL
 
    ```
-   get http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+   wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
    
    sudo rpm -ivh mysql-community-release-el6-5.noarch.rpm
    
@@ -291,7 +291,7 @@ LIMIT 10;
 
 2. 连接到 RedShift
 
-   参考[使用 psql 工具连接到您的群集](使用 psql 工具连接到您的群集)
+   参考[使用 psql 工具连接到您的群集](https://docs.aws.amazon.com/zh_cn/redshift/latest/mgmt/connecting-from-psql.html)
 
 3. 创建表格
 
