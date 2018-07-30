@@ -183,7 +183,7 @@
    AWS CLI 已经预安装在了 Amazon Linux AMI 上，但您仍需要进行相应的配置，详情可参考[配置 AWS CLI](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-chap-getting-started.html)
 
    在 EC2 中配置完成 AWS CLI 后，输入以下命令拷贝测试数据
-   - 全球
+   - Global
    ```
    aws s3 cp s3://rs-vs-rds/test_date/2006.csv 2006.csv
    
@@ -337,7 +337,7 @@ LIMIT 10;
 4. 加载数据
 
    请将以下 COPY 命令中的*<iam-role-arn>*替换为您的角色 ARN，输入至 psql 命令行中
-   - 全球
+   - Global
    ```
    copy demobigtable from 's3://rs-vs-rds/test_date/2006.csv' 
    credentials 'aws_iam_role=<iam-role-arn>'
@@ -357,7 +357,7 @@ LIMIT 10;
    IGNOREHEADER 1
    ACCEPTINVCHARS;
    ```
-   -中国区
+   - 中国区
    ```
    copy demobigtable from 's3://rs-vs-rds/2006.csv' 
    credentials 'aws_iam_role=<iam-role-arn>'
