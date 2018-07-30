@@ -4,6 +4,8 @@
 
 提供 Redshift 和 RDS MySQL 在千万级数据中执行联表查询的性能对比。
 
+[![Image link china](assets/RedShift_MySQL/ChinaRegion.png)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/new?stackName=RedshiftvsRDS&templateURL=https://s3.cn-north-1.amazonaws.com.cn/redshift-rds/RDSvsRedshift.yaml) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Image link global](assets/RedShift_MySQL/GlobalRegion.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=RedshiftvsRDS&templateURL=https://s3.amazonaws.com/redshift-rds/RDSvsRedshift.yaml)
+
 ## 涉及组件
 
 - EC2
@@ -54,9 +56,6 @@
 
 3. 在主菜单中，选择您要在其中创建群集的区域。在本教程中，请选择 **美国西部（俄勒冈）**。 ![](assets/RedShift_MySQL/rs-gsg-aws-region-selector.png)
 
-   > **重要**
-   >
-   > 本实验涉及到的实验数据体积较大，为保证实验数据能够正常高效的被使用，在实验中请务必将RedShift、RDS、EC2的所在区域设置为**美国西部（俄勒冈）**。
 
    . 在 Amazon Redshift 仪表板上，选择 **Launch Cluster**。									“Amazon Redshift Dashboard”如下所示!![rs-gsg-clusters-launch-cluster-10.png](assets/RedShift_MySQL/rs-gsg-clusters-launch-cluster-10.png)
 
@@ -94,7 +93,7 @@
 
 1. 登录 AWS 管理控制台 并通过以下网址打开 Amazon RDS 控制台：<https://console.aws.amazon.com/rds/>。 
 
-2. 在 Amazon RDS 控制台的右上角，选择您要在其中创建数据库实例的区域。这里为保证与之前创建 RedShift 的区域相同，选择 **美国西部（俄勒冈）**。 
+2. 在 Amazon RDS 控制台的右上角，选择您要在其中创建数据库实例的区域。这里为保证与之前创建 RedShift 的区域相同。 
 
 3. 在导航窗格中，选择**实例**。 
 
@@ -129,7 +128,7 @@
 
 1. 启动实例
 
-   - 打开 Amazon EC2 控制台 <https://console.aws.amazon.com/ec2/>。选择您要在其中创建EC2实例的区域。这里为保证与之前创建 RedShift、RDS 的区域相同，选择 **美国西部（俄勒冈）**。 
+   - 打开 Amazon EC2 控制台 <https://console.aws.amazon.com/ec2/>。选择您要在其中创建EC2实例的区域。这里为保证与之前创建 RedShift、RDS 的区域相同。 
 
    - 从控制台控制面板中，选择 **启动实例**。
 
@@ -156,7 +155,7 @@
    **在连接到 EC2 实例后**，依次输入以下命令，在实例中安装 MySQL
 
    ```
-   get http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+   wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
    
    sudo rpm -ivh mysql-community-release-el6-5.noarch.rpm
    
@@ -186,7 +185,7 @@
    AWS CLI 已经预安装在了 Amazon Linux AMI 上，但您仍需要进行相应的配置，详情可参考[配置 AWS CLI](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-chap-getting-started.html)
 
    在 EC2 中配置完成 AWS CLI 后，输入以下命令拷贝测试数据
-
+   - Global
    ```
    aws s3 cp s3://rs-vs-rds/test_date/2006.csv 2006.csv
    
@@ -194,7 +193,15 @@
    
    aws s3 cp s3://rs-vs-rds/test_date/2008.csv 2008.csv
    ```
-
+   - 中国区
+   ```
+   aws s3 cp s3://rs-vs-rds/2006.csv 2006.csv --source-region cn-northwest-1 --region <your region>
+   
+   aws s3 cp s3://rs-vs-rds/2006.csv 2007.csv --source-region cn-northwest-1 --region <your region>
+   
+   aws s3 cp s3://rs-vs-rds/2006.csv 2008.csv --source-region cn-northwest-1 --region <your region>
+   ```
+   
 3. 连接到 RDS
 
    参考[与运行 MySQL 数据库引擎的数据库实例连接](https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html)
@@ -291,7 +298,7 @@ LIMIT 10;
 
 2. 连接到 RedShift
 
-   参考[使用 psql 工具连接到您的群集](使用 psql 工具连接到您的群集)
+   参考[使用 psql 工具连接到您的群集](https://docs.aws.amazon.com/zh_cn/redshift/latest/mgmt/connecting-from-psql.html)
 
 3. 创建表格
 
@@ -332,7 +339,7 @@ LIMIT 10;
 4. 加载数据
 
    请将以下 COPY 命令中的*<iam-role-arn>*替换为您的角色 ARN，输入至 psql 命令行中
-
+   - Global
    ```
    copy demobigtable from 's3://rs-vs-rds/test_date/2006.csv' 
    credentials 'aws_iam_role=<iam-role-arn>'
@@ -347,6 +354,26 @@ LIMIT 10;
    ACCEPTINVCHARS;
    
    copy demobigtable from 's3://rs-vs-rds/test_date/2008.csv' 
+   credentials 'aws_iam_role=<iam-role-arn>'
+   delimiter ',' 
+   IGNOREHEADER 1
+   ACCEPTINVCHARS;
+   ```
+   - 中国区
+   ```
+   copy demobigtable from 's3://rs-vs-rds/2006.csv' 
+   credentials 'aws_iam_role=<iam-role-arn>'
+   delimiter ',' 
+   IGNOREHEADER 1
+   ACCEPTINVCHARS;
+   
+   copy demobigtable from 's3://rs-vs-rds/2007.csv' 
+   credentials 'aws_iam_role=<iam-role-arn>'
+   delimiter ',' 
+   IGNOREHEADER 1
+   ACCEPTINVCHARS;
+   
+   copy demobigtable from 's3://rs-vs-rds/2008.csv' 
    credentials 'aws_iam_role=<iam-role-arn>'
    delimiter ',' 
    IGNOREHEADER 1
