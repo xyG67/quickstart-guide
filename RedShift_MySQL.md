@@ -126,7 +126,7 @@
 
 1. 启动实例
 
-   - 打开 Amazon EC2 控制台 <https://console.aws.amazon.com/ec2/>。选择您要在其中创建EC2实例的区域。这里为保证与之前创建 RedShift、RDS 的区域相同，选择 **美国西部（俄勒冈）**。 
+   - 打开 Amazon EC2 控制台 <https://console.aws.amazon.com/ec2/>。选择您要在其中创建EC2实例的区域。这里为保证与之前创建 RedShift、RDS 的区域相同。 
 
    - 从控制台控制面板中，选择 **启动实例**。
 
@@ -183,7 +183,7 @@
    AWS CLI 已经预安装在了 Amazon Linux AMI 上，但您仍需要进行相应的配置，详情可参考[配置 AWS CLI](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-chap-getting-started.html)
 
    在 EC2 中配置完成 AWS CLI 后，输入以下命令拷贝测试数据
-
+   - 全球
    ```
    aws s3 cp s3://rs-vs-rds/test_date/2006.csv 2006.csv
    
@@ -191,7 +191,15 @@
    
    aws s3 cp s3://rs-vs-rds/test_date/2008.csv 2008.csv
    ```
-
+   - 中国区
+   ```
+   aws s3 cp s3://rs-vs-rds/2006.csv 2006.csv --source-region cn-northwest-1 --region <your region>
+   
+   aws s3 cp s3://rs-vs-rds/2006.csv 2007.csv --source-region cn-northwest-1 --region <your region>
+   
+   aws s3 cp s3://rs-vs-rds/2006.csv 2008.csv --source-region cn-northwest-1 --region <your region>
+   ```
+   
 3. 连接到 RDS
 
    参考[与运行 MySQL 数据库引擎的数据库实例连接](https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html)
@@ -329,7 +337,7 @@ LIMIT 10;
 4. 加载数据
 
    请将以下 COPY 命令中的*<iam-role-arn>*替换为您的角色 ARN，输入至 psql 命令行中
-
+   - 全球
    ```
    copy demobigtable from 's3://rs-vs-rds/test_date/2006.csv' 
    credentials 'aws_iam_role=<iam-role-arn>'
@@ -344,6 +352,26 @@ LIMIT 10;
    ACCEPTINVCHARS;
    
    copy demobigtable from 's3://rs-vs-rds/test_date/2008.csv' 
+   credentials 'aws_iam_role=<iam-role-arn>'
+   delimiter ',' 
+   IGNOREHEADER 1
+   ACCEPTINVCHARS;
+   ```
+   -中国区
+   ```
+   copy demobigtable from 's3://rs-vs-rds/2006.csv' 
+   credentials 'aws_iam_role=<iam-role-arn>'
+   delimiter ',' 
+   IGNOREHEADER 1
+   ACCEPTINVCHARS;
+   
+   copy demobigtable from 's3://rs-vs-rds/2007.csv' 
+   credentials 'aws_iam_role=<iam-role-arn>'
+   delimiter ',' 
+   IGNOREHEADER 1
+   ACCEPTINVCHARS;
+   
+   copy demobigtable from 's3://rs-vs-rds/2008.csv' 
    credentials 'aws_iam_role=<iam-role-arn>'
    delimiter ',' 
    IGNOREHEADER 1
