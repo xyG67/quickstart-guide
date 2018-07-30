@@ -54,9 +54,6 @@
 
 3. 在主菜单中，选择您要在其中创建群集的区域。在本教程中，请选择 **美国西部（俄勒冈）**。 ![](assets/RedShift_MySQL/rs-gsg-aws-region-selector.png)
 
-   > **重要**
-   >
-   > 本实验涉及到的实验数据体积较大，为保证实验数据能够正常高效的被使用，在实验中请务必将RedShift、RDS、EC2的所在区域设置为**美国西部（俄勒冈）**。
 
    . 在 Amazon Redshift 仪表板上，选择 **Launch Cluster**。									“Amazon Redshift Dashboard”如下所示!![rs-gsg-clusters-launch-cluster-10.png](assets/RedShift_MySQL/rs-gsg-clusters-launch-cluster-10.png)
 
