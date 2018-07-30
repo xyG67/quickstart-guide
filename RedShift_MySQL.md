@@ -4,7 +4,7 @@
 
 提供 Redshift 和 RDS MySQL 在千万级数据中执行联表查询的性能对比。
 
-[![Image link china](assets/RedShift_MySQL/ChinaRegion.png)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/new?stackName=RedshiftvsRDS&templateURL= 	https://s3.cn-north-1.amazonaws.com.cn/redshift-rds/RDSvsRedshift.yaml) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Image link global](assets/RedShift_MySQL/GlobalRegion.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=RedshiftvsRDS&templateURL=https://s3.amazonaws.com/redshift-rds/RDSvsRedshift.yaml)
+[![Image link china](assets/RedShift_MySQL/ChinaRegion.png)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/new?stackName=RedshiftvsRDS&templateURL=https://s3.cn-north-1.amazonaws.com.cn/redshift-rds/RDSvsRedshift.yaml) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Image link global](assets/RedShift_MySQL/GlobalRegion.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=RedshiftvsRDS&templateURL=https://s3.amazonaws.com/redshift-rds/RDSvsRedshift.yaml)
 
 ## 涉及组件
 
