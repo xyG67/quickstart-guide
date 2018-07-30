@@ -2,7 +2,7 @@
 
 您可以启动Quick Start，将 S3fs 部署到 AWS 账户中。完成部署需要约 5 分钟。请查看下述实施详细信息，按照此指南后面部分提供的分步说明进行操作。
 
-[![Image link china](assets/S3fs/ChinaRegion.png)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/new?stackName=S3FS&templateURL=https://s3.cn-north-1.amazonaws.com.cn/quickstart201807/s3fs_China_final.template) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Image link global](assets/S3fs/GlobalRegion.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=S3FS&templateURL=https://s3.amazonaws.com/cloudformation2018-qs/s3fs_Global_final.template)
+[![Image link china](assets/S3fs/ChinaRegion.png)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/new?stackName=S3FS&templateURL=https://s3.cn-north-1.amazonaws.com.cn/quickstart201807/s3fs_final.template) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Image link global](assets/S3fs/GlobalRegion.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=S3FS&templateURL=https://s3.amazonaws.com/cloudformation2018-qs/s3fs_final.template)
 
 **步骤一：加载Quick Start**
 
@@ -26,6 +26,9 @@
 | 密钥名称 | KeyName | _需要输入_ | 公有/私有密钥对，使您能够在实例启动后安全地与它连接。|
 | S3 存储桶名称 | BucketName | _需要输入_ | 将部署的S3FS实例所使用的S3 存储桶。 |
 | 实例类型 | InstanceType | _可选_ | 选择您S3FS实例的实例类型。|
+| EBS卷容量 | VolumeSize | _需要输入_ | 选择您实例EBS卷的容量。|
+| 安全组 | S3FSSecurityGroup | _需要输入_ | 选择您的安全实例。|
+| 目录 | S3FSDirectory | _需要输入_ | 输入需要与您S3相连的实例的目录。（例如，/mnt/s3）|
 
 截图如下：
 
@@ -43,6 +46,6 @@
 
 ****步骤二 连接到实例****
 - 当 AWS CloudFormation 模板成功创建堆栈后，您需要通过SSH连接AWS账户中已安装的S3fs实例。
-- 进入 **/mnt/s3mnt** 目录，可发现实例已经与您的S3桶相连。
+- 进入目录(例： **/mnt/s3mnt** )，可发现实例已经与您的S3桶相连。
 
 ![](assets/S3fs/06.png)
