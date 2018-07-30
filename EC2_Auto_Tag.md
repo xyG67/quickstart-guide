@@ -2,7 +2,9 @@
 
 ## 目的
 
-当EC2、EBS、Snapshot、AMI等资源创建之后，自动打上Tag，可以知道这台EC2是属于哪个项目的，并且是由哪个IAM User创建的。
+当EC2、EBS、Snapshot、AMI等资源创建之后，自动打上Tag，可以知道这台EC2是属于哪个项目的，并且是由哪个IAM User创建的。大致流程图为:
+
+![Image one](assets/EC2_Auto_Tag/00.png)
 
 ## **一、配置策略和 IAM 用户**
 
