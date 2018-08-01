@@ -32,6 +32,8 @@ phases:
       - git add .
       - git remote rm origin
       - git remote add origin https://joeshi:$GITHUB_TOKEN@github.com/chinalabs/quickstart-guide.git
+      - git config --global user.email "hellojoeshi@gmail.com"
+      - git config --global user.name "Joe SHI"
       - git commit -a -m "Update docs"
       - git push --set-upstream origin gh-pages
 artifacts:
