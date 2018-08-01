@@ -36,6 +36,7 @@ phases:
       - git config --global user.name "Joe SHI"
       - git commit -a -m "Update docs"
       - git push --set-upstream origin gh-pages
+      - echo gh-pages updated
 artifacts:
   files:
     - _book/**/*
