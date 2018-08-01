@@ -21,6 +21,7 @@ phases:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
       - aws s3 sync _book/ s3://chinalabs-preview/quickstart-guide/stage/ --delete --exclude ".git/*"
+      - echo upload to stage successfully.
 artifacts:
   files:
     - _book/**/*
