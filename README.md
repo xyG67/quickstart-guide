@@ -10,4 +10,7 @@
 * [AWS EC2-EBS-AMI-Snapshot等资源自动打Tag方案](EC2_Auto_Tag.md)
 * [利用S3FS自建NFS](S3fs.md)
 
+### 虚拟映像
+
+* [利用SMS&VM-Import迁移VM](SMS_vm-import.md)
 
