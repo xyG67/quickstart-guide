@@ -6,6 +6,8 @@
 
 ![Image one](assets/EC2_Auto_Tag/00.png)
 
+若需为其他资源添加 Tag 功能请参考 [AWSAutoTag](https://github.com/NageNalock/AWSAutoTag)
+
 ## **一、配置策略和 IAM 用户**
 
 创建IAM Policy: TagBasedEC2RestrictionsPolicy
