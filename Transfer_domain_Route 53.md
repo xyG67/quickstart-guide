@@ -1,4 +1,4 @@
-#将域名从GoDaddy迁移至Route 53
+# 将域名从GoDaddy迁移至Route 53
 
 该指南将逐步介绍如何将 GoDaddy 的域名转移到 Amazon Route 53 服务，在开始前请确认以下几点：
 
