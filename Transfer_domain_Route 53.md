@@ -28,7 +28,9 @@
 首先打开[Route 53 服务](https://console.aws.amazon.com/route53/)控制台。
  
  - 若您首次使用Route 53, 请在 DNS Managment 下点击 Get Started Now。
+ 
    ![image 02](assets/Transfer_Domain/DNS02.png)
+   
  - 在Hosted Zones中点击Created Hosted Zone。
  - 在该窗口中，输入您的域名，填写注释（可选）。
  - Type选项保留默认值Public Hosted Zone。
