@@ -6,6 +6,23 @@
 
 ![Image one](assets/EC2_Auto_Tag/00.png)
 
+若需为其他资源添加 Tag 功能请参考 [AWSAutoTag](https://github.com/NageNalock/AWSAutoTag)
+
+## 原理
+
+在 **CloudTrail **中会记录**大多数** API 操作，并标记为一个个**事件**，通过CloudWatch 可以通过设置**规则**来监听这些事件。
+
+当事件发生时可以选择触发一个 **Lambda 函数**，依靠这个 Lambda 函数，我们可以针对这个事件执行各种操作。
+
+![](assets/EC2_Auto_tag/aws-auto-tag.png)
+
+> **注意**
+>
+> 1. 在创建 Lambda 函数时，保证 Lambda 函数的 角色（Role）**同时**拥有操作 **Lambda 函数**与**对应资源**的权限。
+> 2. 大多数资源的 API 都可以在 [AWS 文档](https://amazonaws-china.com/cn/documentation/?nc2=h_ql_d&awsm=ql-5) 找到。但是，特别的，Lambda 在 CloudTrail 中记录的 API 名称与[Lambda 文档](https://docs.aws.amazon.com/zh_cn/lambda/latest/dg/API_Reference.html)中并不一致。在 [Lambda 样例代码](https://github.com/NageNalock/AWSAutoTag/tree/master/Lambda2Autotag)中给出了部分常用VPC API 名称。
+> 3. 向 S3 中上传文件在**默认**状态下不会被 CloudTrail 记录，需要手动开启，参考[使用 AWS CloudTrail 数据事件为 S3 存储桶启用对象级别日志记录](https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/user-guide/enable-cloudtrail-events.html)。
+> 4. 若需对代码功能进行修改，建议先在各个服务的**独立代码目录**中阅读代码信息。
+
 ## **一、配置策略和 IAM 用户**
 
 创建IAM Policy: TagBasedEC2RestrictionsPolicy
@@ -242,3 +259,51 @@ def lambda_handler(event, context):
 ![Image one](assets/EC2_Auto_Tag/26.png)
 
 因此，可以通过AWS Organization服务解决多个AWS账号的分配和权限控制，通过自动打Tag的功能解决在一个AWS账号内，多个VPC之间明确资源的所属问题。之后新生产的账号都应该有AWS Master Account分配，开发、测试工程师登录到“管人”的账号，再Switch Role到开发、预生产、生产环境等部署资源的账号，开发、测试工程师并不能直接登录到“管资源”的账号。 
+
+## 附录
+
+当您在需要为其他资源( 如 RDS )或因其他情况( 如修改 EC2 实例类型 ) 而为资源打 Tag 时, 可参考附录中的代码.
+
+附录中列举了部分常用资源的 **Lambda 函数**样例代码：
+
+在资源被**创建**时为其打上形如 **{Owner：资源创建者，Principad：事件 ID}**  的 Tag 
+
+此外，在各个服务的**独立代码目录**中还记录了 CloudWatch 监测到的事件**样例返回信息**（ Json 文件），作为修改代码逻辑时的参考信息。
+
+### 整合代码
+
+- [AWSAutotagTotal](templates/auto_tag/AWSAutotagTotal)
+
+  整合后的代码文件，可在一份代码中为多个资源设置 Tag
+
+### 独立代码目录
+
+- [DynamoDBAutotag](templates/auto_tag/DynamoDBAutotag)
+
+  单独为 DynamoDB 设置 Tag 及 DynamoDB  在  CloudWatch 中监测到的事件信息
+
+- [Lambda2Autotag](templates/auto_tag/Lambda2Autotag)
+
+  单独为 Lambda 设置 Tag 及 Lambda  在  CloudWatch 中监测到的事件信息
+
+- [RDSAutotag](templates/auto_tag/RDSAutotag)
+
+  单独为 RDS 设置 Tag 及 RDS  在  CloudWatch 中监测到的事件信息
+
+- [RedShiftAutotag](templates/auto_tag/RedShiftAutotag)
+
+  单独为 RedShift 设置 Tag 及 RedShift  在  CloudWatch 中监测到的事件信息
+
+- [S3AutotagVObject](templates/auto_tag/S3AutotagVObject)
+
+  单独为 S3 设置 Tag 及 S3  在  CloudWatch 中监测到的事件信息。
+
+  特别的，分为对 S3 的**桶（bucket）** 设置 Tag 以及对 S3 中的 **对象（Object）** 设置 Tag
+
+- [SQSAutotag](templates/auto_tag/SQSAutotag)
+
+  单独为 SQS 设置 Tag 及 SQS  在  CloudWatch 中监测到的事件信息
+
+- [VPCAutotag](templates/auto_tag/VPCAutotag)
+
+  单独为 VPC 设置 Tag 及 VPC  在  CloudWatch 中监测到的事件信息

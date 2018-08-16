@@ -50,7 +50,7 @@
 数据流：
 
 1. 客户访问主域名。
-2. Route 53 使用 geolocation route policy 功能，根据用户所处地区为用户分配IP。
+2. Route 53 使用 geolocation route policy 功能，根据用户所处地区为用户分配 IP。
     - 海外用户请求将被导航到海外 API Gateway。
     - 国内用户请求将被导航至位于香港或台湾的 CDN 节点
 3. CDN 节点回源位于国内的代理服务。
@@ -61,7 +61,7 @@
 
 该方案使用海外 CNC 节点加速，当用户访问主域名时，可使用位于海外的 CDN 节点加速访问，您也可选择 CN2 链路优化访问速度，该方案不需要在国内部署代理服务。
 
-![image 02](assets/ICP/03.png)
+![image 03](assets/ICP/03.png)
 
 架构搭建：
 
