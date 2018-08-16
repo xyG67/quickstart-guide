@@ -1,4 +1,4 @@
-#将域名从GoDaddy迁移至Route 53
+# 将域名从GoDaddy迁移至Route 53
 
 该指南将逐步介绍如何将 GoDaddy 的域名转移到 Amazon Route 53 服务，在开始前请确认以下几点：
 
@@ -21,7 +21,7 @@
 
 ### 2. 创建托管区域
 
-在Route 53中创建一个与您的域同名的托管区域，在该区中创建记录。Route 53会自动为该域创建名称服务器（NS）和授权起始点（SOA）记录。步骤如下：
+在Route 53中创建一个与您的域同名的托管区域，在该区中创建记录。Route 53 会自动为该域创建名称服务器（NS）和授权起始点（SOA）记录。步骤如下：
 
 #### 创建托管区域
 
@@ -142,7 +142,7 @@
 
 ![image 042](assets/Transfer_Domain/DNS07.png)
 
-##步骤三 在Amazon Route 53 控制台提交迁移请求
+## 步骤三 在Amazon Route 53 控制台提交迁移请求
 
 进入 AWS 控制台，点击 Amazon Route 53。在 Domain 下方，点击 Registered Domains -> Transfer Domain。 输入域名并选择您域名的后缀。点击 Check。
 
