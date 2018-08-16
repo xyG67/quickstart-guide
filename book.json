@@ -2,10 +2,13 @@
   "styles": {
     "website": "styles/website.css"
   },
-  "plugins": ["ga"],
+  "plugins": ["ga", "disqus"],
   "pluginsConfig": {
     "ga": {
       "token": "UA-123322271-1"
+    },
+    "disqus": {
+      "shortName": "chinalabs"
     }
   }
 }
