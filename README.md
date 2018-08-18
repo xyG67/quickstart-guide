@@ -3,6 +3,7 @@
 ### 数据库
 
 * [RedShift & MySQL 性能对比实验](RedShift_MySQL.md)
+* [Aurora & MySQL 性能对比试验](Aurora-vs-MySQL.md)
 
 ### 自动化部署
 
