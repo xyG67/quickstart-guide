@@ -11,3 +11,4 @@
   * [利用SMS&VM-Import迁移VM](SMS_vm-import.md)
 * 部署服务
   * [在国内为海外IP部署服务](ByPassICP.md)
+  * [从GoDaddy迁移域名至Route 53](TransferDomainRoute53.md)
