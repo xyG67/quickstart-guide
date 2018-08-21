@@ -67,7 +67,7 @@
 
 ![image 01](assets/BJDtoZHY/08.png)
 
-## 3. 将 RDS 服务从 BJD 迁移至ZHY 
+## 3. 将 RDS 服务从 BJS 迁移至ZHY 
 
 本实例使用 RDS 的 MySQL 作为案例，您也可以迁移 RDS 中其他数据库服务。
 
@@ -119,7 +119,7 @@
 
  若您的数据库有其他 Read Replica, 需先升级复制项。
 
-## 4. 将S3服务从BJD迁移至ZHY
+## 4. 将 S3 服务从 BJS 迁移至 ZHY
 
 本部分将逐步介绍如何将 S3 服务迁移到新的可用区，您有以下两种迁移方案：
 
@@ -151,7 +151,7 @@
 
 	aws s3 sync s3://tmpbucket s3://foobucket
 
-## 5. 将 ElastiCache 服务从BJD迁移至ZHY
+## 5. 将 ElastiCache 服务从 BJS 迁移至 ZHY
 
 本例中将逐步介绍如何将 ElastiCache 服务迁移到另一可用区，本实例使用 Redis 作为案例。
 
