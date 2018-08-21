@@ -1,20 +1,28 @@
 # AWS 快速上手
 
+### 介绍
+这个项目的目的是为了更加快速地熟悉AWS服务，或者在AWS上快速部署服务。
+
 ### 数据库
 
 * [RedShift & MySQL 性能对比实验](RedShift_MySQL.md)
+* [Aurora & MySQL 性能对比试验](Aurora-vs-MySQL.md)
 
-### 自动化部署
+### 自动部署
 
-* [MongoDB on AWS 快速部署](MangoDB.md)
-* [AWS EC2-EBS-AMI-Snapshot等资源自动打Tag方案](EC2_Auto_Tag.md)
-* [利用S3FS自建NFS](S3fs.md)
+* [EC2,EBS,AMI,Snapshot自动打Tag](EC2_Auto_Tag.md)
+* [MongoDB: MongoDB快速部署](MangoDB.md)
+* [NFS: 利用S3FS自建NFS](S3fs.md)
 
-### 虚拟映像
+### 网络 & 加速
 
-* [利用SMS&VM-Import迁移VM](SMS_vm-import.md)
+* [海外域名部署方案：海外域名向国内用户提供服务](ByPassICP.md)
 
-### 部署服务
+### 迁移服务
 
-  * [在国内为海外IP部署服务](ByPassICP.md)
+* [镜像迁移：SMS & VM-Import快速上手](SMS_vm-import.md)
+* [域名迁移：从GoDaddy到Route 53](TransferDomainRoute53.md)
+
+### 物联网 IoT
+* <a href="https://chinalabs.github.io/aws-iot-labs/" target="_blank">HandsOn: IOT系列动手实验</a>
 
