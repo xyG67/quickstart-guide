@@ -66,9 +66,11 @@ docker build 命令将读取指定路径下(包括子目录)的 Dockerfile，并
 
 ![image 01](assets/docker_guide/09.png)
 
-上面的能用 gcc main.c 后执行./a.out 
+输入 gcc main.c 后生成 a.out 执行文件
 
 ![image 01](assets/docker_guide/10.png)
+
+您也可使用 gcc main.c -o main 命令直接生成可执行文件 
 
 ## Docker 相关操作
 
