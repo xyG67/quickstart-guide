@@ -24,7 +24,7 @@
 
 Docker 中的镜像文件可以通过命令行下载、导入本地镜像文件等方法进行配置。
 
-（1） Dockerfile 中配置了安装有 gcc 编译器的 ubuntu 系统。
+（1） 方法一 Dockerfile 配置带 gcc 编译器的 ubuntu 系统。
 
 	FROM ubuntu
 	ENV DEBIAN_FRONTEND noninteractive
@@ -38,7 +38,7 @@ Docker 中的镜像文件可以通过命令行下载、导入本地镜像文件�
 
 docker build 命令将读取指定路径下(包括子目录)的 Dockerfile，并将该路径下的所有内容发送给Docker服务端，由服务端来创建镜像。
 
-（2）下载 ubuntu 系统的镜像
+（2）方法二 加载 ubuntu 系统的镜像
 
 调用下述代码下载ubuntu 镜像。
 
