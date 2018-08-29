@@ -110,6 +110,10 @@
  - 按需求配置复制实例其他参数。
 
  - 选择 Create read replica，等待数据库部署完毕。
+ 
+ - 监控数据库实例的 Replication 状态，等待滞后时间 Lag 变为 0。
+ 
+![image 01](assets/BJDtoZHY/26.png)
 
  - 选择 Instance actions -> Promote Read Replica。将其升为主库。
 
