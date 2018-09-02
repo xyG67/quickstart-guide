@@ -1,9 +1,12 @@
-# TARGET
+# VPC 配置指南
+
+本文主要包含以下内容
 
 - public subnet  和 private subnet 的区别
 - 如何新建 IGW, 如何更改路由表
 - 如何创建 NAT 网关,如何更改路由表
 - 合理的 web hosting 的网络拓扑
+- VPC Wizard
 
 ## Public Subnet 与 Private Subnet
 
