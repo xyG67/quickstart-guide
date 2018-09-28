@@ -27,7 +27,7 @@
      -	Host -> Configuration -> System Management (Host.Config.SystemManagement) 
      -	vApp -> Export (VApp.Export) 
      -	Virtual Machine -> Snapshot management -> Create snapshot and Remove Snapshot (VirtualMachine.State.CreateSnapshot 和 VirtualMachine.State.RemoveSnapshot) 
-     
+    
      ![image 01](assets/SMS_vm-import/SMS01.png)
 
 3.	将此 vCenter 角色分配给连接器的服务账户，添加针对要迁移的 VM 的数据中心的传播权限。
@@ -72,15 +72,15 @@
     ![image 04](assets/SMS_vm-import/SMS04.png)
     
 10.	选择 Upload logs automatically 和 服务器迁移连接器 auto-upgrade。 
-    
+
     ![image 05](assets/SMS_vm-import/SMS05.png)
-    
+
 11.	对于 AWS Region，从列表中选择您所处区域。对于 AWS Credentials，输入您的 AWS 账户权限中创建的 IAM Credentials。选择 Next。 
 12.	对于 vCenter Service Account，输入步骤 3 中的 vCenter 主机名、用户名和密码。选择 Next。 
 13.	接受 vCenter 证书后，完成注册，然后查看连接器配置控制面板。
-    
+
     ![image 06](assets/SMS_vm-import/SMS06.png)
-    
+
 14.	验证 Connectors 页面中是否显示您已注册的连接器。 
 
 
@@ -110,7 +110,7 @@
    选择其中一个复制作业，在下方的窗格中查看详细信息。Job details 选项卡显示当前复制运行的信息。Run history 选项卡显示有关选定复制作业的所有复制运行的详细信息。
 
  - 如更改作业参数，请在 Replication jobs 页面上选择一个作业，点击 Actions -> Edit replication job。在 Edit configuration job 表单中输入新信息后，选择 Save 以提交您的更改。
-    
+   
 ##### 第五步： 关闭复制
 
  - 如需在复制完服务器后删除复制作业创建的其他服务。请在 Replication jobs 中选择对应作业，点击 Actions -> Delete replication jobs。在确认窗口中，选择 Delete。该操作不会删除创建的AMI。
@@ -178,9 +178,13 @@ AWS支持四种格式的磁盘：开放虚拟化存档 (OVA)、虚拟机磁盘 (
 
 VM Import 需要一个角色在您的账户中执行特定的操作，例如：从 Amazon S3 存储桶下载磁盘映像
 
+###### 上传 ova 镜像至S3存储桶
+
+请参考[如何向 S3 存储桶添加对象](http://docs.amazonaws.cn/AmazonS3/latest/gsg/PuttingAnObjectInABucket.html)
+
 ###### 创建服务角色
 
- - 利用以下策略创建名为 trust-policy.json 的文件，这里需注意，如果您位于中国区，请在Service变量的vmie.amazonaws.com后添加.cn。
+ - 利用以下策略创建名为 trust-policy.json 的文件。
 
     ```sh
     {
@@ -198,13 +202,13 @@ VM Import 需要一个角色在您的账户中执行特定的操作，例如：�
     }
     ```
     
- - 使用 create-role 命令创建名为 vmimport 的角色，并向 VM Import/Export 提供对该角色的访问权。请确保指定 trust-policy.json 文件的完整路径，并且为路径添加 file:// 前缀。
+ - 使用 create-role 命令创建名为 vmimport 的角色，并向 VM Import/Export 提供对该角色的访问权。请确保指定 trust-policy.json 文件的完整路径，并且为路径**添加 file:// 前缀**。
 
     ```sh
     aws iam create-role --role-name vmimport --assume-role-policy-document  file://trust-policy.json
     ```
 
- - 创建名为 role-policy.json 的文件并添加下面的策略，其中，disk-image-file-bucket 为存储磁盘映像的存储桶，这里需注意，如果您在中国区，请将 Resource 中 arn:aws:s3 更改为 arn:aws-cn:s3。
+ - 创建名为 role-policy.json 的文件并添加下面的策略，其中，**请将\<disk-image-file-bucket> 替换为存储ova映像的S3存储桶**，这里需注意，**如果您在中国区，请将 Resource 中 arn:aws:s3 更改为 arn:aws-cn:s3**。
 
     ```sh
     {
@@ -217,8 +221,8 @@ VM Import 需要一个角色在您的账户中执行特定的操作，例如：�
                 "s3:ListBucket" 
             ],
             "Resource":[
-                "arn:aws:s3:::disk-image-file-bucket",
-                "arn:aws:s3:::disk-image-file-bucket/*"
+                "arn:aws:s3:::<disk-image-file-bucket>",
+                "arn:aws:s3:::<disk-image-file-bucket>/*"
             ]
         },
         {
@@ -235,39 +239,41 @@ VM Import 需要一个角色在您的账户中执行特定的操作，例如：�
     ```
     
  - 使用下面的 put-role-policy 命令将策略挂载到之前创建的角色。    
- 
+
     ```sh
     aws iam put-role-policy --role-name vmimport --policy-name vmimport             --policy-document file://role-policy.json
     ```
     
 ##### 2.	导入映像任务
 
-- 创建名为containers.json的文件。
+- 创建名为containers.json的文件。其中，**\<my-import-bucket>**为您上传 ova 镜像的 S3 桶的名称，**\<vms/my-windows-2008-vm.ova>** 为您上传的 ova 镜像**在 S3 桶中的地址**。
 
     ```sh
     [{
         "Description": "Windows 2008 OVA",
         "Format": "ova",
         "UserBucket": {
-            "S3Bucket": "my-import-bucket",
-            "S3Key": "vms/my-windows-2008-vm.ova"
+            "S3Bucket": "<my-import-bucket>",
+            "S3Key": "<vms/my-windows-2008-vm.ova>"
         }
     }]
     ```
-    
+
  - 导入OVA。
 
     ```sh
     aws ec2 import-image --description " Centos 7.0 " --disk-containers file://containers.json
     ```
 
+- 记录下输出信息中的 **ImportTaskId**
+
+  ![image 05](assets/SMS_vm-import/VMImport05-daisai.png)
+
 ##### 3.	检查您的导入映像任务的状态
 
 请根据上一步保留的 ImportTaskId 值自行替换该值，即可查询该任务的情况。
 
-    ```sh
     aws ec2 describe-import-image-tasks --cli-input-json "{ \"ImportTaskIds\":         [\"import-ami-fggrs8es\"], \"NextToken\": \"abc\", \"MaxResults\": 10 } "
-    ```
 
 上述命令会根据 AWS 的处理进度，返回查询任务响应中的Status，依次为“Pending”、“Converting”、“Updating”、“Updated”、“Preparing AMI”等。整个的处理过程持续10+分钟，请耐心等待。
 
