@@ -284,3 +284,7 @@ VM Import 需要一个角色在您的账户中执行特定的操作，例如：�
 上述命令会根据 AWS 的处理进度，返回查询任务响应中的Status，依次为“Pending”、“Converting”、“Updating”、“Updated”、“Preparing AMI”等。整个的处理过程持续10+分钟，请耐心等待。
 
 ![image 04](assets/SMS_vm-import/VMImport04.png)
+
+## 参考资料
+
+- [使用 VM Import/Export 将 VM 作为映像导入](https://docs.aws.amazon.com/zh_cn/vm-import/latest/userguide/vmimport-image-import.html)
