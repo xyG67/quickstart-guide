@@ -24,6 +24,7 @@
 
 * [镜像迁移：SMS & VM-Import快速上手](SMS_vm-import.md)
 * [域名迁移：从GoDaddy到Route 53](TransferDomainRoute53.md)
+* [中国区服务迁移：从北京区（BJS）到宁夏区（ZHY）](BJStoZHY.md)
 
 ### 物联网 IoT
 * <a href="https://chinalabs.github.io/aws-iot-labs/" target="_blank">HandsOn: IOT系列动手实验</a>
