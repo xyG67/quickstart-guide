@@ -14,7 +14,7 @@
 
 当事件发生时可以选择触发一个 **Lambda 函数**，依靠这个 Lambda 函数，我们可以针对这个事件执行各种操作。
 
-![](assets/EC2_Auto_tag/aws-auto-tag.png)
+![](assets/EC2_Auto_Tag/aws-auto-tag.png)
 
 > **注意**
 >

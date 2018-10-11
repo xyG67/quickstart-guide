@@ -7,6 +7,7 @@
 
 * [RedShift & MySQL 性能对比实验](RedShift_MySQL.md)
 * [Aurora & MySQL 性能对比试验](Aurora-vs-MySQL.md)
+* [Amazon ElastiCache for Redis 基准测试](redis_benchmark.md)
 
 ### 自动部署
 
@@ -17,6 +18,7 @@
 ### 网络 & 加速
 
 * [海外域名部署方案：海外域名向国内用户提供服务](ByPassICP.md)
+* [VPC 配置指南](vpc_guide.md)
 
 ### 迁移服务
 

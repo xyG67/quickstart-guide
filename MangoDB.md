@@ -11,8 +11,8 @@
 ![Image one](assets/mongodb/01.png)
 
 
-2. 在配置前，请确保您的VPC在不同可用区中有两个公有子网和三个私有子网（可选），以及 DHCP 选项中配置的域名选项，如 [Amazon VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html) [文档](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html)中所述。
-3. 私有子网需配置 NAT 网关或 NAT 实例以用于出站 Internet 连接，并需创建堡垒主机及其关联的安全组以实现入站 SSH 访问。(请参阅 [Amazon VPC](https://aws.amazon.com/quickstart/architecture/vpc/) [快速入门](https://aws.amazon.com/quickstart/architecture/vpc/)设置VPC， [Linux](https://aws.amazon.com/quickstart/architecture/linux-bastion/) [堡垒主机快速入门](https://aws.amazon.com/quickstart/architecture/linux-bastion/)设置堡垒主机。)
+2. 在配置前，请确保您的VPC在不同可用区中有两个公有子网和三个私有子网（可选），以及 DHCP 选项中配置的域名选项，如 [Amazon VPC 文档](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html) 中所述。
+3. 私有子网需配置 NAT 网关或 NAT 实例以用于出站 Internet 连接，并需创建堡垒主机及其关联的安全组以实现入站 SSH 访问。(请参阅 [Amazon VPC 快速入门](https://aws.amazon.com/quickstart/architecture/vpc/) 设置VPC，[Linux 堡垒主机快速入门](https://aws.amazon.com/quickstart/architecture/linux-bastion/)设置堡垒主机。)
 4. 检查导航栏右上角显示的所在区域，根据需要进行更改。
 5. 在 **Select Template** 页面上，若使用默认模板则保留模板 URL 的默认设置，或选择上传您的Template文件，然后选择 **Next** 。
 
@@ -21,9 +21,9 @@
 
 6. 在 **Specify Details** 页面上，更改堆栈名称（可选）。填写模板的参数，并仔细检查默认设置中的其他参数，根据需要进行更改（见下表）。完成后选择 **Next** 进入下一步。
 
-**选项**** 1：用于将 **** MongoDB **** 部署到现有 **** VPC **** 的参数**
+**选项** 1：用于将 **MongoDB** 部署到现有 **VPC** 的参数
 
-_网络配置__:_
+_网络配置:_
 
 | 参数标签 | 参数名称 | 默认值 | 说明 |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ _MongoDB 数据库配置：_
 | MongoDB 管理员用户名 | MongoDBAdminUsername | 管理员 | MongoDB 管理账户的用户名。 |
 | MongoDB 管理员密码 | MongoDBAdminPassword | _需要输入_ | 您的 MongoDB 数据库密码。您可以输入由以下字符组成的 8-32 个字符的字符串：[A-Za-z0-9\_@-]。 |
 | 节点实例类型 | NodeInstanceType | m4.large | MongoDB 节点的 EC2 实例类型。 |
-| 副本分区索引 | ReplicaShardIndex | 0 | 此副本集的分区索引。有关分区索引的信息，请参阅 [MongoDB](https://docs.mongodb.com/v3.0/core/sharding-shard-key-indexes/) [文档](https://docs.mongodb.com/v3.0/core/sharding-shard-key-indexes/) |
+| 副本分区索引 | ReplicaShardIndex | 0 | 此副本集的分区索引。有关分区索引的信息，请参阅 [MongoDB 文档](https://docs.mongodb.com/v3.0/core/sharding-shard-key-indexes/) |
 | 卷大小 | VolumeSize | 400 | 挂载到 MongoDB 节点的 Amazon EBS (数据) 卷的大小 (以 GiB 为单位)。 |
 | 卷类型 | VolumeType | gp2 | 挂载到 MongoDB 节点 (gp2或io1) 的 Amazon EBS (数据) 卷的卷类型。 |
 
@@ -90,4 +90,4 @@ _AWS 快速入门配置：_
 
         scp –i mykey.pem mykey.pem ec2-user@Bastion-public-ip:/home/ec2-user/mykey.pem
 
-请注意，所有 MongoDB 节点均通过 IAM 角色来启动，该角色需要权限包括：创建和删除 Amazon DynamoDB 表、访问 Amazon Simple Storage Service (Amazon S3)、创建和删除 Amazon EC2 实例等。您可以使用 IAM 控制台修改该策略。有关 IAM 角色的详细信息请参阅 AWS 文档中的 [使用](http://docs.aws.amazon.com/IAM/latest/UserGuide/role-usecase-ec2app.html) [IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/role-usecase-ec2app.html) [角色向](http://docs.aws.amazon.com/IAM/latest/UserGuide/role-usecase-ec2app.html) [Amazon EC2](http://docs.aws.amazon.com/IAM/latest/UserGuide/role-usecase-ec2app.html) [上运行的应用程序委托权限](http://docs.aws.amazon.com/IAM/latest/UserGuide/role-usecase-ec2app.html)。
+请注意，所有 MongoDB 节点均通过 IAM 角色来启动，该角色需要权限包括：创建和删除 Amazon DynamoDB 表、访问 Amazon Simple Storage Service (Amazon S3)、创建和删除 Amazon EC2 实例等。您可以使用 IAM 控制台修改该策略。有关 IAM 角色的详细信息请参阅 AWS 文档中的[使用 IAM 角色向 Amazon EC2 上运行的应用程序委托权限](http://docs.aws.amazon.com/IAM/latest/UserGuide/role-usecase-ec2app.html)。

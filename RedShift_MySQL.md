@@ -128,7 +128,7 @@
 
 1. 启动实例
 
-   - 打开 Amazon EC2 控制台 <https://console.aws.amazon.com/ec2/>。选择您要在其中创建EC2实例的区域。这里为保证与之前创建 RedShift、RDS 的区域相同。 
+   - 打开 Amazon EC2 控制台 <https://console.aws.amazon.com/ec2/>。选择您要在其中创建EC2实例的区域。这里为保证与之前创建 RedShift、RDS 的区域相同, 请选择**俄勒冈**。 
 
    - 从控制台控制面板中，选择 **启动实例**。
 
